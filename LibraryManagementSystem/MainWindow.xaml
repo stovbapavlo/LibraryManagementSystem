@@ -6,6 +6,7 @@
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <Button Content="Додати книгу" Click="AddBook_Click" Margin="10" FontSize="16"/>
             <Button Content="Список книг" Click="ShowBooks_Click" Margin="10" FontSize="16"/>
+            <Button Content="Пошук Книг" Click="SearchBooks_Click" Margin="10" FontSize="16"/>
         </StackPanel>
     </Grid>
 </Window>

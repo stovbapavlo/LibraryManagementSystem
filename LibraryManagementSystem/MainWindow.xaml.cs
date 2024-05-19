@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static System.Reflection.Metadata.BlobBuilder;
 
 namespace LibraryManagementSystem
 {
@@ -29,5 +30,13 @@ namespace LibraryManagementSystem
             ShowBooksWindow showBooksWindow = new ShowBooksWindow();
             showBooksWindow.Show();
         }
+        private void SearchBooks_Click(object sender, RoutedEventArgs e)
+        {
+            SearchBooksWindow searchBooksWindow = new SearchBooksWindow();
+            searchBooksWindow.Show();
+        }
+
+
+
     }
 }
