@@ -5,8 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LibraryManagementSystem"
         mc:Ignorable="d"
-        Title="ShowBooksWindow" Height="450" Width="800">
+        Title="ShowBooksWindow" Height="450" Width="800"
+        Loaded="Window_Loaded">
     <Grid>
-        
+        <ListBox Name="BooksListBox" Margin="10" FontSize="16">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="ID: " FontWeight="Bold" />
+                        <TextBlock Text="{Binding Id}" FontWeight="Bold" />
+                        <TextBlock Text="Назва: " FontWeight="Bold" />
+                        <TextBlock Text="{Binding Title}" />
+                        <TextBlock Text="Автор: " FontWeight="Bold" />
+                        <TextBlock Text="{Binding Author}" />
+                        <TextBlock Text="Жанр: " FontWeight="Bold" />
+                        <TextBlock Text="{Binding Genre}" />
+                        <TextBlock Text="Рік: " FontWeight="Bold" />
+                        <TextBlock Text="{Binding Year}" />
+                        <TextBlock Text="Сторінки: " FontWeight="Bold" />
+                        <TextBlock Text="{Binding Pages}" />
+                        <!-- Кнопка для видалення книги -->
+                        <Button Content="Видалити" Click="DeleteButton_Click" Tag="{Binding Id}" Margin="5" />
+
+                        <!-- Кнопка для редагування книги -->
+                        <Button Content="Редагувати" Click="EditButton_Click" Tag="{Binding Id}" Margin="5" />
+                        <Separator/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </Window>

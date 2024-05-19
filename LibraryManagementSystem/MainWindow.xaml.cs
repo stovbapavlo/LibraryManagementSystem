@@ -24,18 +24,6 @@ namespace LibraryManagementSystem
             addBookWindow.Show();
         }
 
-        private void UpdateBook_Click(object sender, RoutedEventArgs e)
-        {
-            UpdateBookWindow updateBookWindow = new UpdateBookWindow();
-            updateBookWindow.Show();
-        }
-
-        private void DeleteBook_Click(object sender, RoutedEventArgs e)
-        {
-            DeleteBookWindow deleteBookWindow = new DeleteBookWindow();
-            deleteBookWindow.Show();
-        }
-
         private void ShowBooks_Click(object sender, RoutedEventArgs e)
         {
             ShowBooksWindow showBooksWindow = new ShowBooksWindow();

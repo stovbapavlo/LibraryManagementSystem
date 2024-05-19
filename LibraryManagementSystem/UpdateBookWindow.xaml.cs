@@ -1,27 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace LibraryManagementSystem
 {
-    /// <summary>
-    /// Interaction logic for UpdateBookWindow.xaml
-    /// </summary>
     public partial class UpdateBookWindow : Window
     {
-        public UpdateBookWindow()
+        public Book BookToUpdate { get; set; }
+
+        public UpdateBookWindow(Book book)
         {
             InitializeComponent();
+
+            // Встановлюємо властивість BookToUpdate і прив'язуємо її до елементів керування
+            BookToUpdate = book;
+            DataContext = BookToUpdate;
+        }
+
+        private void SaveChanges_Click(object sender, RoutedEventArgs e)
+        {
+            // Зберігаємо зміни у списку книг
+            Library.Instance.UpdateBook(BookToUpdate);
+
+            // Закриваємо вікно
+            Close();
         }
     }
 }

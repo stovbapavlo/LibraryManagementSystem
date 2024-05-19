@@ -2,18 +2,20 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using static System.Reflection.Metadata.BlobBuilder;
 
 namespace LibraryManagementSystem
 {
-    class Library
+    public class Library
     {
         private static Library instance;
         private List<Book> books = new List<Book>();
 
-        // Забороняємо створення нових екземплярів класу через конструктор
-        private Library() { }
+        private Library()
+        {
+            instance = this;
+        }
 
-        // Перевірка наявності єдиного екземпляру та створення його, якщо він відсутній
         public static Library Instance
         {
             get
@@ -26,29 +28,23 @@ namespace LibraryManagementSystem
             }
         }
 
-        public void AddBook(Book book)
+        public void UpdateBook(Book updatedBook)
         {
-            books.Add(book);
-            SaveBooksToFile();
-        }
-
-        public void RemoveBook(string title)
-        {
-            Book bookToRemove = books.FirstOrDefault(b => b.Title == title);
-            if (bookToRemove != null)
+            Book bookToUpdate = books.FirstOrDefault(b => b.Id == updatedBook.Id);
+            if (bookToUpdate != null)
             {
-                books.Remove(bookToRemove);
-                SaveBooksToFile();
-            }
-            else
-            {
-                Console.WriteLine("Book not found.");
+                bookToUpdate.Title = updatedBook.Title;
+                bookToUpdate.Author = updatedBook.Author;
+                bookToUpdate.Genre = updatedBook.Genre;
+                bookToUpdate.Year = updatedBook.Year;
+                bookToUpdate.Pages = updatedBook.Pages;
+                bookToUpdate.IsAvailable = updatedBook.IsAvailable;
+                Library.SaveBooksToFile(books);
             }
         }
 
-        // Інші методи класу Library...
-
-        private void SaveBooksToFile()
+        // Оновлено метод, щоб він приймав список книг
+        public static void SaveBooksToFile(List<Book> books)
         {
             try
             {
@@ -56,7 +52,7 @@ namespace LibraryManagementSystem
                 {
                     foreach (Book book in books)
                     {
-                        string line = $"{book.Title};{book.Author};{book.Genre};{book.Year};{book.Pages};{book.IsAvailable}";
+                        string line = $"{book.Id};{book.Title};{book.Author};{book.Genre};{book.Year};{book.Pages};{book.IsAvailable}";
                         wr.WriteLine(line);
                     }
                 }

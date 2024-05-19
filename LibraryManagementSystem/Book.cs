@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LibraryManagementSystem
 {
-    class Book
+    public class Book
     {
         public string Title { get; set; }
         public string Author { get; set; }
@@ -14,7 +14,7 @@ namespace LibraryManagementSystem
         public int Year { get; set; }
         public int Pages { get; set; }
         public bool IsAvailable { get; set; }
-        public int Id { get; set; } 
+        public int Id { get; set; }
 
         public Book(string title, string author, string genre, int year, int pages, bool isAvailable, int id)
         {

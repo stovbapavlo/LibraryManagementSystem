@@ -7,6 +7,25 @@
         mc:Ignorable="d"
         Title="UpdateBookWindow" Height="450" Width="800">
     <Grid>
-        
+        <StackPanel Margin="10">
+            <TextBlock Text="Title:"/>
+            <TextBox x:Name="txtTitle" Margin="5" Text="{Binding Title, Mode=TwoWay}" />
+            <!-- Додано Text="{Binding Title, Mode=TwoWay}" -->
+            <TextBlock Text="Author:"/>
+            <TextBox x:Name="txtAuthor" Margin="5" Text="{Binding Author, Mode=TwoWay}" />
+            <!-- Додано Text="{Binding Author, Mode=TwoWay}" -->
+            <TextBlock Text="Genre:"/>
+            <TextBox x:Name="txtGenre" Margin="5" Text="{Binding Genre, Mode=TwoWay}" />
+            <!-- Додано Text="{Binding Genre, Mode=TwoWay}" -->
+            <TextBlock Text="Year:"/>
+            <TextBox x:Name="txtYear" Margin="5" Text="{Binding Year, Mode=TwoWay}" />
+            <!-- Додано Text="{Binding Year, Mode=TwoWay}" -->
+            <TextBlock Text="Pages:"/>
+            <TextBox x:Name="txtPages" Margin="5" Text="{Binding Pages, Mode=TwoWay}" />
+            <!-- Додано Text="{Binding Pages, Mode=TwoWay}" -->
+            <CheckBox x:Name="chkAvailable" Content="Is Available" Margin="5" IsChecked="{Binding IsAvailable, Mode=TwoWay}" />
+            <!-- Додано IsChecked="{Binding IsAvailable, Mode=TwoWay}" -->
+            <Button Content="Зберегти зміни" Click="SaveChanges_Click" Margin="5"/>
+        </StackPanel>
     </Grid>
 </Window>

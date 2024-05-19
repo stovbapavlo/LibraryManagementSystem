@@ -4,10 +4,8 @@
         Title="Library Management System" Height="350" Width="500">
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Button Content="Додати книгу" Click="AddBook_Click"/>
-            <Button Content="Змінити книгу" Click="UpdateBook_Click"/>
-            <Button Content="Видалити книгу" Click="DeleteBook_Click"/>
-            <Button Content="Список книг" Click="ShowBooks_Click"/>
+            <Button Content="Додати книгу" Click="AddBook_Click" Margin="10" FontSize="16"/>
+            <Button Content="Список книг" Click="ShowBooks_Click" Margin="10" FontSize="16"/>
         </StackPanel>
     </Grid>
 </Window>
