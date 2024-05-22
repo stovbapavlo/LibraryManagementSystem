@@ -24,10 +24,9 @@
                         <TextBlock Text="{Binding Year}" />
                         <TextBlock Text="Сторінки: " FontWeight="Bold" />
                         <TextBlock Text="{Binding Pages}" />
-                        <!-- Кнопка для видалення книги -->
+
                         <Button Content="Видалити" Click="DeleteButton_Click" Tag="{Binding Id}" Margin="5" />
 
-                        <!-- Кнопка для редагування книги -->
                         <Button Content="Редагувати" Click="EditButton_Click" Tag="{Binding Id}" Margin="5" />
                         <Separator/>
                     </StackPanel>

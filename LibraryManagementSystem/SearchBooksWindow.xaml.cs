@@ -27,7 +27,7 @@ namespace LibraryManagementSystem
                     while ((line = reader.ReadLine()) != null)
                     {
                         string[] data = line.Split(';');
-                        if (data.Length == 7) // Перевірка, чи маємо всі необхідні поля
+                        if (data.Length == 7)
                         {
                             int id = int.Parse(data[0]);
                             string title = data[1];
@@ -52,17 +52,17 @@ namespace LibraryManagementSystem
 
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
-            string searchText = SearchTextBox.Text.ToLower(); // Отримуємо текст для пошуку та переводимо його в нижній регістр
+            string searchText = SearchTextBox.Text.ToLower();
 
             List<Book> searchResults = books.Where(book =>
                 book.Title.ToLower().Contains(searchText) || book.Author.ToLower().Contains(searchText)).ToList();
 
-            SearchResultsListBox.ItemsSource = null; // Очищуємо попередні результати
+            SearchResultsListBox.ItemsSource = null;
             SearchResultsListBox.Items.Clear();
 
             if (searchResults.Count > 0)
             {
-                SearchResultsListBox.ItemsSource = searchResults; // Прив'язуємо результати пошуку до ListBox
+                SearchResultsListBox.ItemsSource = searchResults;
             }
             else
             {

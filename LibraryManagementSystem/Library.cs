@@ -43,7 +43,6 @@ namespace LibraryManagementSystem
             }
         }
 
-        // Оновлено метод, щоб він приймав список книг
         public static void SaveBooksToFile(List<Book> books)
         {
             try

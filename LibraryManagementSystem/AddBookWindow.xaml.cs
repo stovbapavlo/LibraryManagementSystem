@@ -21,12 +21,10 @@ namespace LibraryManagementSystem
                 int year = int.Parse(txtYear.Text);
                 int pages = int.Parse(txtPages.Text);
                 bool isAvailable = chkAvailable.IsChecked ?? false;
-                int id = GenerateUniqueId(); // Генеруємо унікальний ID
+                int id = GenerateUniqueId();
 
-                // Створюємо рядок для збереження у файлі з включеним ID
                 string line = $"{id};{title};{author};{genre};{year};{pages};{isAvailable}";
 
-                // Зберігаємо рядок у файлі LibraryBooks.txt
                 using (StreamWriter wr = new StreamWriter("LibraryBooks.txt", true))
                 {
                     wr.WriteLine(line);
@@ -44,8 +42,6 @@ namespace LibraryManagementSystem
 
         private int GenerateUniqueId()
         {
-            // Можете реалізувати свій механізм генерації унікального ID
-            // Наприклад, можна використовувати дату та час як унікальний ідентифікатор
             return (int)(DateTime.UtcNow - new DateTime(2024, 1, 1)).TotalSeconds;
         }
     }

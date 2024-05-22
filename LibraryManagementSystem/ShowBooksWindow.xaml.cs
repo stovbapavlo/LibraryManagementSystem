@@ -21,14 +21,14 @@ namespace LibraryManagementSystem
         {
             try
             {
-                books.Clear(); // Очищуємо поточний список книг перед завантаженням з файлу
+                books.Clear(); 
                 using (StreamReader reader = new StreamReader("LibraryBooks.txt"))
                 {
                     string line;
                     while ((line = reader.ReadLine()) != null)
                     {
                         string[] data = line.Split(';');
-                        if (data.Length == 7) // Перевіряємо, чи маємо всі необхідні поля, включаючи ID
+                        if (data.Length == 7) 
                         {
                             int id = int.Parse(data[0]);
                             string title = data[1];
@@ -52,19 +52,15 @@ namespace LibraryManagementSystem
 
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
-            // Отримати Id книги для редагування з Tag кнопки
             Button button = (Button)sender;
             int bookId = (int)button.Tag;
 
-            // Знайти книгу за її Id
             Book bookToEdit = books.FirstOrDefault(b => b.Id == bookId);
             if (bookToEdit != null)
             {
-                // Відкрити вікно для редагування книги
                 UpdateBookWindow updateBookWindow = new UpdateBookWindow(bookToEdit);
                 updateBookWindow.ShowDialog();
 
-                // Оновити ListBox
                 BooksListBox.ItemsSource = null;
                 BooksListBox.ItemsSource = books;
             }
@@ -76,21 +72,17 @@ namespace LibraryManagementSystem
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-            // Отримати Id книги для видалення з Tag кнопки
             Button button = (Button)sender;
             int bookId = (int)button.Tag;
 
-            // Знайти книгу за її Id і видалити її зі списку
             Book bookToRemove = books.FirstOrDefault(b => b.Id == bookId);
             if (bookToRemove != null)
             {
                 books.Remove(bookToRemove);
 
-                // Оновити ListBox
                 BooksListBox.ItemsSource = null;
                 BooksListBox.ItemsSource = books;
 
-                // Оновити файл LibraryBooks.txt
                 Library.SaveBooksToFile(books);
 
                 MessageBox.Show("Книгу видалено успішно.");
@@ -103,7 +95,7 @@ namespace LibraryManagementSystem
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            BooksListBox.ItemsSource = books; // Прив'язуємо список книг до ListBox для відображення
+            BooksListBox.ItemsSource = books; 
         }
     }
 }
